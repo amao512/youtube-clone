@@ -1,12 +1,20 @@
 import axios from 'axios';
 
 const instance = axios.create({
-    baseURL: 'www.youtube.com',
+    baseURL: 'https://www.googleapis.com/youtube/v3',
 })
 
 export const API = {
-    getData(){
-        const data = instance.get();
-        return data;
+    async getData(){
+        const { data: { items } } = await instance.get('search', {
+            params: {
+                part: 'snippet',
+                maxResults: 10,
+                q: '',
+                key: 'AIzaSyBWYi11ydc-CEcYJZfPiWYiFuOrPmyo-gA',
+            }
+        });
+        
+        return items;
     }
 }
