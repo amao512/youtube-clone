@@ -8,7 +8,7 @@ const VideoList = ({ videos }) => {
         const {snippet: { thumbnails }} = video;
         return (
             <div key={i}>
-                <img src={thumbnails.medium.url} /> 
+                <img src={thumbnails.medium.url} alt='thumbnails' /> 
             </div>
         )
     })

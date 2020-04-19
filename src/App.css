@@ -7,8 +7,3 @@
     box-sizing: inherit;
     margin: 0;
 }
-
-.container {
-    max-width: 720px;
-    margin: 0 auto;
-}
