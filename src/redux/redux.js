@@ -3,9 +3,11 @@ import videosReducer from './videosReducer';
 import thunkMiddleware from 'redux-thunk';
 
 const reducers = combineReducers({
-    videos: videosReducer
+    videos: videosReducer,
 });
 
 const store = createStore(reducers, applyMiddleware(thunkMiddleware));
+
+window.store = store;
 
 export default store;

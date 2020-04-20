@@ -5,12 +5,13 @@ const instance = axios.create({
 })
 
 export const API = {
-    async getData(){
+    async getData(searchTerm){
         const { data: { items } } = await instance.get('search', {
             params: {
                 part: 'snippet',
                 maxResults: 10,
-                q: '',
+                q: searchTerm,
+                type: 'video',
                 key: 'AIzaSyBWYi11ydc-CEcYJZfPiWYiFuOrPmyo-gA',
             }
         });
