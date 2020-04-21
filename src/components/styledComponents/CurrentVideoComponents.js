@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-export const VideoInfo = styled.div`
-    padding-bottom: 20px;
+export const VideoContainer = styled.div`
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding-bottom: 15px;
     h3 {
         color: ${props => props.theme.videoItemColor};
         font-size: 18px;
@@ -17,36 +17,40 @@ export const VideoInfo = styled.div`
         padding-left: 10px;
     }
 
-    @media ${props => props.theme.device.mobileL}{
+    @media ${props => props.theme.device.tablet}{
+        padding-top: 20px;
+    }
+
+    @media ${props => props.theme.device.mobileS}{
         h3 {
             font-size: 16px;
+        }
+    }
+
+    @media ${props => props.theme.device.tablet}{
+        h3 {
+            font-size: 18px;
         }
     }
 `;
 
 export const Video = styled.div`
     max-width: 100%;
-    height: 360px;
     background-color: #222;
-    margin-top: 56px;
 
-    @media ${props => props.theme.device.tablet}{
-        margin-top: 37px;
-    }
-
-    @media (max-width: 545px){
-        height: 300px;
-    }
-
-    @media ${props => props.theme.device.mobileL}{
-        height: 230px;
+    @media ${props => props.theme.device.mobileS}{
+        height: 200px;
     }
 
     @media ${props => props.theme.device.mobileM}{
-        height: 180px;
+        height: 250px;
     }
 
-    @media ${props => props.theme.device.mobileS}{
-        height: 140px;
+    @media ${props => props.theme.device.mobileL}{
+        height: 280px;
+    }
+
+    @media ${props => props.theme.device.tablet}{
+        height: 360px;
     }
 `;

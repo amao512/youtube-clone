@@ -6,16 +6,20 @@ export const HeaderComponent = styled.div`
     top: 0;
     left: 0;
     right: 0;
-    background-color: ${props => props.theme.headerBackground};
+    background-color: ${props => props.theme.mainBackground};
     color: #fff;
-    padding: 8px 40px;
     display: grid;
-    grid-template-columns: 180px 1fr;
     align-items: center;
+    z-index: ${props => props.theme.z_header};
 
-    @media ${props => props.theme.device.mobileL}{
+    @media ${props => props.theme.device.mobileS}{
         padding: 8px 10px;
         grid-template-columns: 40px 1fr;
+    }
+
+    @media ${props => props.theme.device.tablet}{
+        padding: 8px 40px;
+        grid-template-columns: 180px 1fr;
     }
 `;
 
@@ -38,9 +42,15 @@ export const Logo = styled.div`
         margin-top: 10px;
         margin-left: 2px;
     }
-    @media ${props => props.theme.device.mobileL}{
+    @media ${props => props.theme.device.mobileS}{
         h3, span {
             display: none;
+        }
+    }
+
+    @media ${props => props.theme.device.tablet} {
+        h3, span {
+            display: block;
         }
     }
 `;
@@ -76,10 +86,15 @@ export const SearchForm = styled.form`
             }
         }
     }
-    @media ${props => props.theme.device.mobileL}{
+    @media ${props => props.theme.device.mobileS}{
         ${props => (
             props.showForm ? `display: grid` : `display: none;`
         )}
+    }
+    
+    @media ${props => props.theme.device.tablet}{
+        display: grid;
+        margin-right: 15%;
     }
 `;
 
@@ -88,11 +103,15 @@ export const ShowForm = styled.div`
     span {
         cursor: pointer;
     }
-    @media ${props => props.theme.device.mobileL}{
+    @media ${props => props.theme.device.mobileS}{
         display: block;
         justify-self: end;
         ${props => (
             props.showForm && `display: none;`
         )}
+    }
+
+    @media ${props => props.theme.device.tablet} {
+        display: none;
     }
 `;

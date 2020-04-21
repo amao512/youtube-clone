@@ -6,8 +6,36 @@ export const SingleVideo = styled.div`
     border-radius: 0;
     cursor: pointer;
     overflow: hidden;
-    img {
-        width: 100%;
+    position: relative;
+    div {
+        position: relative;
+        img {
+            width: 100%;
+            z-index: 1;
+        }
+        ${props => props.watch && `
+            width: 100%;
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background-color: rgba(0, 0, 0, 0.8);
+            }
+            &::after {
+                content: 'CURRENT VIDEO';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 2;
+                color: #fff;
+                font-size: 16px;
+                font-family: ${props => props.theme.mainFont};
+            }
+        `}
     }
     h3 {
         color: ${props => props.theme.videoItemColor};
@@ -19,6 +47,4 @@ export const SingleVideo = styled.div`
         font-size: ${props => props.theme.videoFontSize};
         padding: 0 10px;
     }
-
-    ${props => props.watching && `background-color: red`}
 `;

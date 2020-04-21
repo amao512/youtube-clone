@@ -2,20 +2,28 @@ import React, { useState } from 'react';
 import { HeaderComponent, Logo, SearchForm, ShowForm } from '../styledComponents/HeaderComponents';
 import logo from '../../assets/logo.svg';
 import { connect } from 'react-redux';
-import { changeSearchTerm, searchData } from '../../redux/videosReducer';
+import { changeSearchTerm, searchData, closeCurrentVideo } from '../../redux/videosReducer';
 
-const Header = ({ searchTerm, changeSearchTerm, searchData }) => {
+const Header = ({ searchTerm, changeSearchTerm, searchData, closeCurrentVideo }) => {
     const [form, setForm] = useState(false);
 
     const handleSubmit = e => {
         e.preventDefault();
         
         searchData(e.target.searchTerm.value)
+
+        if(!e.target.searchTerm.value.trim()){
+            setForm(false);
+        }
     }
 
     return (
         <HeaderComponent showForm={form}>
-            <Logo showForm={form} onClick={() => searchData('')}>
+            <Logo showForm={form} onClick={() => {
+                searchData(''); 
+                closeCurrentVideo();
+                setForm(false);
+            }}>
                 <img src={logo} alt='logo' />
                 <h3>YouTube</h3>
                 <span>CLONE</span>
@@ -41,4 +49,4 @@ const mstp = state => ({
     searchTerm: state.videos.searchTerm,
 })
 
-export default connect(mstp, { changeSearchTerm, searchData })(Header);
+export default connect(mstp, { changeSearchTerm, searchData, closeCurrentVideo })(Header);

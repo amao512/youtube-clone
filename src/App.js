@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
 import './App.css';
-import { Header, Footer, CurrentVideo, VideoList, VideoItem } from './components';
+import { Header, Footer, CurrentVideo, VideoList } from './components';
 import { getData } from './redux/videosReducer';
 import { connect } from 'react-redux';
+import { Wrapper } from './components/styledComponents';
 
-const App = ({ getData }) => {
+const App = ({ getData, isWatching }) => {
+
   useEffect(() => {
     getData()
   }, [getData])
@@ -12,12 +14,19 @@ const App = ({ getData }) => {
   return (
     <div className='App'>
       <Header />
+      
+      <Wrapper>
+        {isWatching && <CurrentVideo />}
+        <VideoList />
+      </Wrapper>
+
       <Footer />
-      <CurrentVideo />
-      <VideoList />
-      <VideoItem />
     </div>
   );
 }
 
-export default connect(null, { getData })(App);
+const mstp = state => ({
+  isWatching: state.videos.isWatching,
+})
+
+export default connect(mstp, { getData })(App);
