@@ -9,7 +9,7 @@ const CurrentVideo = ({ currentVideo }) => {
         <VideoContainer>
             <Video>
                 <iframe id="ytplayer" type="text/html" width="100%" height="100%"
-                src={`http://www.youtube.com/embed/${currentVideo.id}?autoplay=1`}
+                src={`https://www.youtube.com/embed/${currentVideo.id}?autoplay=1`}
                 frameBorder="0" allowFullScreen autoPlay title='video' />
             </Video>
 

@@ -12,7 +12,7 @@ export const API = {
                 maxResults: 10,
                 q: searchTerm,
                 type: 'video',
-                key: 'AIzaSyBWYi11ydc-CEcYJZfPiWYiFuOrPmyo-gA',
+                key: process.env.REACT_APP_GOOGLE_API_KEY,
             }
         });
         
