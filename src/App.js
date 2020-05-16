@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import './App.css';
 import { Header, Footer, CurrentVideo, VideoList } from './components';
-import { getData } from './redux/videosReducer';
+import { getData } from './redux/thunks';
 import { connect } from 'react-redux';
 import { Wrapper } from './components/styledComponents';
 

@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { HeaderComponent, Logo, SearchForm, ShowForm } from '../styledComponents/HeaderComponents';
 import logo from '../../assets/logo.svg';
 import { connect } from 'react-redux';
-import { changeSearchTerm, searchData, closeCurrentVideo } from '../../redux/videosReducer';
+import { changeSearchTerm, closeCurrentVideo } from '../../redux/actions';
+import {  searchData } from '../../redux/thunks';
 
 const Header = ({ searchTerm, changeSearchTerm, searchData, closeCurrentVideo }) => {
     const [form, setForm] = useState(false);

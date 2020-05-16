@@ -1,6 +1,6 @@
 import React from 'react';
 import { SingleVideo } from '../styledComponents/VideoItemComponents';
-import { setCurrentVideo } from '../../redux/videosReducer';
+import { setCurrentVideo } from '../../redux/actions';
 import { connect } from 'react-redux';
 import loading from '../../assets/loading.gif';
 
